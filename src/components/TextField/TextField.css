@@ -14,7 +14,9 @@
 
 .campo-texto input{
     width: 100%;
-    background: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #AFAFAF;
+    opacity: 1;
     mix-blend-mode: normal;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
     border-radius: 0px;
@@ -22,4 +24,5 @@
     padding: 30px 20px;
     outline-color: #6278F7;
     font-size: 16px;
+    box-sizing: border-box;
 }
