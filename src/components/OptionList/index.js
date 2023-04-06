@@ -16,10 +16,6 @@ const OptionList = () =>{
         "Innovación y Gestión"
     ]
 
-    const arreglo = {
-        
-    }
-
     return <div className='lista-opciones'>
         <label>Equipos</label>
         <select>

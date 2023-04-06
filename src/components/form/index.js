@@ -14,9 +14,9 @@ const Form = () =>{
     return <section className='formulario'>
         <form onSubmit={sendData}>
             <h2>Rellena el formulario para crear el colaborador.</h2>
-            <TextField title ="Nombre" placeholder="Ingresar nombre"/>
-            <TextField title = "Puesto" placeholder="Ingresar puesto"/>
-            <TextField title = "Foto" placeholder="Ingresar enlace de foto"/>
+            <TextField title ="Nombre" placeholder="Ingresar nombre" required/>
+            <TextField title = "Puesto" placeholder="Ingresar puesto" required/>
+            <TextField title = "Foto" placeholder="Ingresar enlace de foto" required/>
             <OptionList/>
             <Button title ="Crear"/>
         </form>
