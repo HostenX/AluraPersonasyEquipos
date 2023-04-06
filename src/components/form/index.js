@@ -4,7 +4,7 @@ import TextField from '../TextField';
 import OptionList from '../OptionList';
 import Button from '../button';
 
-const Form = () =>{
+const Form = (props) =>{
 
     const[name, setName]=useState("")
     const[charge, setcharge]=useState("")
@@ -53,6 +53,7 @@ const Form = () =>{
             <OptionList
                 valor={team} 
                 updateTeam={setTeam}
+                teams={props.teams}
             />
             <Button title ="Crear"/>
         </form>
