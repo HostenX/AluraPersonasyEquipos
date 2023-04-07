@@ -11,6 +11,8 @@ const Form = (props) =>{
     const[photo, setPhoto]=useState("")
     const[team, setTeam]=useState("")
 
+    const{registerColab}=props
+
     const sendData =(e)=>{
         e.preventDefault()
         console.log("Manejar Envio")
@@ -20,7 +22,7 @@ const Form = (props) =>{
             photo,
             team
         }        
-        console.log(dataToSend)
+        registerColab(dataToSend)
     }
 
     return <section className='formulario'>

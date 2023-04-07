@@ -1,13 +1,15 @@
 import"./card.css"
 
 const Card =(props)=>{
+    const{name, charge, photo, team} = props.datos
+    const {primaryColor}=props
     return<div className="card">
-        <div className="cardHeader">
-        <img src="https://github.com/hostenx.png" alt="Hosten"></img>
+        <div className="cardHeader" style={{backgroundColor:primaryColor}}>
+        <img src={photo} alt="photo"></img>
         </div>
         <div className="info">
-            <h4>Hosten</h4>
-            <h5>Instrucor</h5>
+            <h4>{name}</h4>
+            <h5>{charge}</h5>
         </div>
     </div>
 }
