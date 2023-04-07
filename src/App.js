@@ -1,3 +1,4 @@
+//import { useEffect } from 'react';
 import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/';
@@ -7,7 +8,37 @@ import Team from './components/Team';
 import Footer from './components/Footer';
 
 function App() {
-  const [collaborators, updateCollaborators]=useState([]) //Colaboradores
+  //Obtener Colaboradores de un local Storage
+  const [collaborators, updateCollaborators]=useState(
+    // JSON.parse(localStorage.getItem("collaborators")) || 
+    [
+      {
+        team:"Front End",
+        photo: "https://github.com/hostenx.png",
+        name:"Juan Esteban Ayala Ramirez",
+        charge:"Ingeniero"
+      },
+      {
+        team:"Data Sience",
+        photo: "https://github.com/Mari1345Espu.png",
+        name:"Maria Fernanda Escobar Pulido",
+        charge:"Ingeniera"
+      },
+      {
+        team:"Ux y Diseño",
+        photo: "https://github.com/HariNamakura.png",
+        name:"Nelson Gabriel Cardenas Gomez",
+        charge:"Ingeniero"
+      },
+      {
+        team:"Front End",
+        photo: "https://github.com/Mcdiek.png",
+        name:"Diego Gantiva",
+        charge:"Electronics and tecnology teacher."
+      }
+    ]
+  ) 
+  
   const[showForm, updateShow]=useState(true) //Mostrar Formulario
 
   //Ternario --> condicion ? seMuestra : noSeMuestra
@@ -24,6 +55,17 @@ function App() {
     //Spread Operator
     updateCollaborators([...collaborators, colab])
   }
+
+    // Cuando los colaboradores cambian, actualizamos el localStorage
+  //     useEffect(() => {
+  //   localStorage.setItem("collaborators", JSON.stringify(collaborators));
+  // }, [collaborators]);
+
+  //Eliminar Colaborador
+  const deleteCollaborator = () =>{
+    console.log("Eliminar Colaborador")
+  }
+
 
   //Lista de Equipos
   const teams=[
@@ -64,6 +106,7 @@ function App() {
   }
   ]
 
+    //Crear Componentes
     return (
       <div>
         <Header/>
@@ -77,10 +120,11 @@ function App() {
 
         { 
           teams.map((team) => <Team
-           team={team} 
-           key={team.titulo}
-           collaborators={collaborators.filter(colab	=> colab.team === team.titulo)}
-           />
+              team={team} 
+              key={team.titulo}
+              collaborators={collaborators.filter(colab	=> colab.team === team.titulo)}
+              deleteCollaborator={deleteCollaborator}
+            />
            )
         }
 

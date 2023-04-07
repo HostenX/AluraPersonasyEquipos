@@ -4,7 +4,7 @@ import './team.css'
 const Team = (props) =>{
     //Destructuracion
     const { primaryColor, secondaryColor, titulo } = props.team
-    const {collaborators} = props
+    const {collaborators, deleteCollaborator} = props
     const obj ={
         backgroundColor: secondaryColor
     }
@@ -20,6 +20,7 @@ const Team = (props) =>{
                 datos={colab} 
                 key={index} 
                 primaryColor={primaryColor}
+                deleteCollaborator={deleteCollaborator}
                 />
                 )
             }
