@@ -41,6 +41,44 @@ function App() {
   
   const[showForm, updateShow]=useState(true) //Mostrar Formulario
 
+  const[teams, setTeams]=useState([
+      {
+        titulo: "Programación",
+        primaryColor: "#57C278",
+        secondaryColor:"#D9F7E9"
+      },
+      {
+        titulo: "Front End",
+        primaryColor: "#82CFFA",
+        secondaryColor:"#E8F8FF"
+      },
+      {
+        titulo: "Data Sience",
+        primaryColor: "#A6D157",
+        secondaryColor:"#F0F8E2"
+      },
+      {
+        titulo: "DevOps",
+        primaryColor: "#E06B69",
+        secondaryColor:"#FDE7E8"
+      },
+      {
+        titulo: "Ux y Diseño",
+        primaryColor: "#DB6EBF",
+        secondaryColor:"#FAE9F5"
+      },
+      {
+        titulo: "Móvil",
+        primaryColor: "#FFBA05",
+        secondaryColor:"#FFF5D9"
+      },
+      {
+        titulo: "Innovación y Gestión",
+        primaryColor: "#FF8A29",
+        secondaryColor:"#FFEEDF"
+      }
+  ])
+
   //Ternario --> condicion ? seMuestra : noSeMuestra
   // Condicion && seMuestra
 
@@ -66,45 +104,23 @@ function App() {
     console.log("Eliminar Colaborador")
   }
 
+  //Actualizar color de equipo
+  const setColor=(color, titulo)=>{
+    console.log("Actualizar ", color, " ", titulo)
+    const updatedTeams=teams.map((team)=>{
+      if(team.titulo === titulo){
+        team.primaryColor=color
+      }
 
-  //Lista de Equipos
-  const teams=[
-  {
-    titulo: "Programación",
-    primaryColor: "#57C278",
-    secondaryColor:"#D9F7E9"
-  },
-  {
-    titulo: "Front End",
-    primaryColor: "#82CFFA",
-    secondaryColor:"#E8F8FF"
-  },
-  {
-    titulo: "Data Sience",
-    primaryColor: "#A6D157",
-    secondaryColor:"#F0F8E2"
-  },
-  {
-    titulo: "DevOps",
-    primaryColor: "#E06B69",
-    secondaryColor:"#FDE7E8"
-  },
-  {
-    titulo: "Ux y Diseño",
-    primaryColor: "#DB6EBF",
-    secondaryColor:"#FAE9F5"
-  },
-  {
-    titulo: "Móvil",
-    primaryColor: "#FFBA05",
-    secondaryColor:"#FFF5D9"
-  },
-  {
-    titulo: "Innovación y Gestión",
-    primaryColor: "#FF8A29",
-    secondaryColor:"#FFEEDF"
+      return team
+    })
+
+    setTeams(updatedTeams)
   }
-  ]
+
+
+
+  
 
     //Crear Componentes
     return (
@@ -124,6 +140,7 @@ function App() {
               key={team.titulo}
               collaborators={collaborators.filter(colab	=> colab.team === team.titulo)}
               deleteCollaborator={deleteCollaborator}
+              setColor={setColor}
             />
            )
         }
